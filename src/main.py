@@ -1,5 +1,7 @@
 import json
+from utils import format_operation
 executed_count = 5
+
 def get_info():
     with open('operations.json', encoding='UTF-8') as file:
         content = json.loads(file.read()) #Строковое представление файла
@@ -20,4 +22,5 @@ def get_sorted_list():
     top_5 = sorted_list[0:executed_count]
     return top_5
 
-#print(len(get_sorted_list()))
+for i in get_sorted_list():
+    print(format_operation(i))
