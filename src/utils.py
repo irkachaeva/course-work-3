@@ -1,24 +1,23 @@
 from datetime import datetime
 import json
-
-executed_count = 5
-data = 'operations.json'
+import os
 
 def get_info(data):
-    with open(data, encoding='UTF-8') as file:
+    filepath = os.path.join(os.path.dirname(__file__), data)
+    with open(filepath, encoding='UTF-8') as file:
         content = json.loads(file.read()) #Строковое представление файла
     return content
 
-def get_info_fiter():
+def get_info_filter(data, filter):
     info = []
-    for i in get_info(data):
+    for i in data:
         for v in i.values():
-            if v == "EXECUTED":
+            if v == filter:
                 info.append(i)
     return info
 
-def get_sorted_list():
-    sorted_list = sorted(get_info_fiter(), key=lambda x: x['date'], reverse=True)
+def get_sorted_list(data, executed_count):
+    sorted_list = sorted((data), key=lambda x: x['date'], reverse=True)
     top_5 = sorted_list[0:executed_count]
     return top_5
 
