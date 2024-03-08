@@ -35,9 +35,11 @@ def format_operation(data):
                         from_card = f"{card[0:4]} {card[4:6]}{'** ****'} {card[-4:]}"
 
         description = data['description']
+
         v = data['date'][0:10].replace('-','.')
         date_1 = datetime.strptime(v, "%Y.%m.%d")
         date_format = date_1.strftime("%d.%m.%Y")
+
         to = f" -> Счет {'**'} {data['to'][-4:]}"
         amount = data['operationAmount']['amount']
         currency = data['operationAmount']['currency']['name']

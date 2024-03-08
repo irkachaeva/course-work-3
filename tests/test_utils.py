@@ -21,11 +21,8 @@ def test_get_sorted_list():
     assert get_sorted_list(data_for_test,2)[0]["date"] == '2019-08-26T10:50:58.294041'
     assert len(get_sorted_list(data_for_test, 2)) == 2
 
-@pytest.fixture
-def dada_test():
-    return get_sorted_list(get_info_filter(get_info('../tests/test_data.json'), "EXECUTED"), 4)
 
-#def format_operation(data_test):
-   # assert
+
+
 
 
